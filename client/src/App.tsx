@@ -36,7 +36,7 @@ function App() {
   }
 
   useEffect(() => {
-    webSocket.current = new WebSocket("ws://127.0.0.1:9000")
+    webSocket.current = new WebSocket("ws://127.0.0.1:1337")
     webSocket.current.onmessage = (message) => {
       const data = JSON.parse(message.data)
 

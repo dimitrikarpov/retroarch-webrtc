@@ -5,7 +5,7 @@ const uuidv4 = require("uuid/v4")
 
 const app = express()
 
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 1337
 
 //initialize a http server
 const server = http.createServer(app)
@@ -13,7 +13,6 @@ const server = http.createServer(app)
 //initialize the WebSocket server instance
 const wss = new WebSocket.Server({
   server,
-  // host: "https://f7e3-109-234-39-57.ngrok-free.app",
 })
 
 let users = {}
@@ -156,5 +155,5 @@ wss.on("connection", (ws) => {
 
 //start our server
 server.listen(port, () => {
-  console.log(`Server started on port: ${server.address().port} :)`)
+  console.log(`Server started on port ${server.address().port} :)`)
 })
