@@ -1,0 +1,43 @@
+services:
+  # Socket Server
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=production
+      - PORT=1337
+
+  # Client
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      # args:
+      #   - REACT_APP_SOCKET_URL=https://v1451291.hosted-by-vdsina.ru
+    restart: always
+    ports:
+      - "3000:3000"
+
+  # Caddy server
+#   caddy:
+#     container_name: caddy
+#     image: caddy/caddy:2.6.2-alpine
+#     restart: unless-stopped
+#     ports:
+#       - "80:80"
+#       - "443:443"
+#     volumes:
+#       - $PWD/Caddyfile:/etc/caddy/Caddyfile
+#       - $PWD/site:/srv
+#       - caddy_data:/data
+#       - caddy_config:/config
+
+# volumes:
+#   caddy_data:
+#   caddy_config:
