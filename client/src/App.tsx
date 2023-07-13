@@ -35,8 +35,12 @@ function App() {
     webSocket.current?.send(JSON.stringify(data))
   }
 
+  console.log("ffffffffff", import.meta.env)
+
   useEffect(() => {
-    webSocket.current = new WebSocket("ws://127.0.0.1:1337")
+    webSocket.current = new WebSocket(
+      import.meta.env.VITE_SOCKET_URL || "ws://127.0.0.1:1337",
+    )
     webSocket.current.onmessage = (message) => {
       const data = JSON.parse(message.data)
 

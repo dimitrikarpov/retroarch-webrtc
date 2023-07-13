@@ -4,6 +4,10 @@ WORKDIR /app
 # ENV PATH /app/node_modules/.bin:$PATH
 # ARG REACT_APP_SOCKET_URL
 # ENV REACT_APP_SOCKET_URL $REACT_APP_SOCKET_URL
+
+ARG VITE_SOCKET_URL
+ENV VITE_SOCKET_URL $VITE_SOCKET_URL
+
 COPY package*.json ./
 # RUN npm ci --only=production
 RUN npm install

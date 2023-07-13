@@ -18,8 +18,8 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-      # args:
-      #   - REACT_APP_SOCKET_URL=https://v1451291.hosted-by-vdsina.ru
+      args:
+        - VITE_SOCKET_URL=ws://195.2.71.135:1337
     restart: always
     ports:
       - "3000:3000"

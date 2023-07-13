@@ -19,6 +19,8 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile.dev
+      args:
+        - VITE_SOCKET_URL=ws://127.0.0.1:1337
     restart: always
     ports:
       - "3000:3000"
